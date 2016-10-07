@@ -4,7 +4,7 @@ It's a common news-feed app example, developed with react and redux framework.
 
 Do gitclone from a repository.
 
-### npm install
+### `npm install`
 
 Load all dependenices 
 
