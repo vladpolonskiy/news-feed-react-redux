@@ -1,0 +1,92 @@
+/**
+* Main styles
+**/
+body {
+ 	margin: 0;
+  	padding: 0;
+  	font-family: sans-serif;
+}
+
+.app {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	-webkit-box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.75);
+}
+
+.app-header {
+	margin-left: -15px;
+	margin-right: -15px;
+  	background-color: #222;
+  	height: 77px;
+  	padding: 20px;
+  	color: white;
+  	text-align: center;
+}
+
+.app-header h1 {
+	margin: 0;
+}
+
+.app-content {
+	padding: 0 70px 15px 70px;
+}
+
+/**
+* News Component
+**/
+.toolbar {
+	float: right;
+}
+
+.toolbar span {
+	margin-right: 15px;
+}
+
+.news-item {
+	margin-top: 86px;
+}
+
+.news-item-description {
+	margin-top: 26px;
+    font-size: 19px;
+}
+
+.news-item-thumbnail,
+.news-item-footer {
+	margin-top: 26px;
+}
+
+.news-item-footer .btn {
+	line-height: 1;
+	padding: 0 5px;
+	font-size: 23px;
+	width: 28px;
+}
+
+.news-item-rating {
+	font-size: 22px;
+    position: relative;
+    top: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.news-item-info {
+	font-size: 16px;
+	float: right;
+    margin-top: 9px;
+}
+
+.news-item-info > div {
+	display: inline-block;
+	margin-left: 26px;
+}
+
+.news-item-rating-label {
+	font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    top: 2px;
+}

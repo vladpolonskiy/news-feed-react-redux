@@ -1,0 +1,40 @@
+{
+	"news": [
+		{
+			"id": 0,
+			"title": "Adipiscing elit",
+			"description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis",
+			"rating": 0,
+			"image": "/assets/img/0.png",
+			"author": "Polonskyi Vlad",
+			"date": "10.05.2011"
+		},
+		{
+			"id": 1,
+			"title": "Lorem ipsum",
+			"description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis",
+			"rating": 10,
+			"image": "/assets/img/1.png",
+			"author": "Avraam Linkoln",
+			"date": "07.22.2014"
+		},
+		{
+			"id": 2,
+			"title": "Dolor amet",
+			"description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis",
+			"rating": 6,
+			"image": "/assets/img/2.png",
+			"author": "James Bond",
+			"date": "07.03.2010"
+		},
+		{
+			"id": 3,
+			"title": "Consectetuer adipiscing",
+			"description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis",
+			"rating": 2,
+			"image": "/assets/img/3.png",
+			"author": "Ninja Turtle",
+			"date": "11.11.2015"
+		}
+	]
+}

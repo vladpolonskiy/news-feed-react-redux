@@ -1,0 +1,43 @@
+import {RATE, UNRATE, FETCH_NEWS_SUCCESS, FETCH_NEWS_ERROR} from '../constants/ActionTypes';
+
+export default function news(state = [], action) {
+	let newState = [];
+	
+	switch (action.type) {
+		case RATE:
+		case UNRATE:
+			newState = state.map((news) => {
+				if (news.id === action.id) {
+					news.rating = rating(news.rating, action);
+				}
+				return news;
+			});
+			break;
+
+		case FETCH_NEWS_SUCCESS:
+			newState = [...action.news];
+			break;
+
+		case FETCH_NEWS_ERROR:
+			console.log('=========================');
+			console.log(action);
+			console.log('=========================');
+			break;
+
+		default: 
+			break;
+	}
+
+	return newState;
+}
+
+function rating(state = 0, action) {
+	switch (action.type) {
+		case RATE: 
+			return ++state;
+		case UNRATE: 
+			return --state;
+		default: 
+			return state;
+	}
+}
