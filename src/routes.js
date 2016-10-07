@@ -10,8 +10,8 @@ export const routes = (
 		<Route path="/" component={App}>
 			<IndexRedirect to="/news" />
 			<Route path="/news" component={NewsList} />
+			<Route path="/news/(:id)" component={NewsListItem} />
 		</Route>
-		<Route path="/news/(:id)" component={NewsListItem} />
 		<Route path="*" component={NotFound} />
 	</div>
 );

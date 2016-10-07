@@ -27,7 +27,7 @@ function fetchNews() {
 	    		}
 	    	} 
 	    };
-	    xhr.open('GET', './db/news.json');
+	    xhr.open('GET', '/db/news.json');
 	    xhr.send();
 	});
 }

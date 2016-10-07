@@ -6,18 +6,14 @@ import * as actionCreators from '../actions/ActionCreators';
 class App extends Component {
 
   componentWillMount() {
-  	this.props.actions.getNews();
+    if (!this.props.news)
+  	 this.props.actions.getNews();
   }
 
   render() {
     return (
       <div className="app container">
-        <div className="app-header">
-          <h1>News Feed</h1>
-        </div>
-        <div className="app-content">
           {this.props.children}
-        </div>
       </div>
     );
   }

@@ -35,20 +35,27 @@ class NewsList extends React.Component {
 		}
 
 		return (
-			<div className="news-list">
-				<div className="toolbar">
-					<span>Order by:</span> 
-					<select defaultValue={localStorage.getItem('n_sort')} onChange={(e) => {this.sortChange(e.target.value);} }>
-						<option>none</option>
-						<option>date</option>
-						<option>rating</option>
-					</select>
+		<div>
+			<div className="app-header">
+	          <h1>News Feed</h1>
+	        </div>
+	        <div className="app-content">
+				<div className="news-list">
+					<div className="toolbar">
+						<span>Order by:</span> 
+						<select defaultValue={localStorage.getItem('n_sort')} onChange={(e) => {this.sortChange(e.target.value);} }>
+							<option>none</option>
+							<option>date</option>
+							<option>rating</option>
+						</select>
+					</div>
+					{news.map(
+						(newsItem) =>  
+							<News rate={this.props.actions.rate} unrate={this.props.actions.unrate} author={newsItem.author} date={newsItem.date} image={newsItem.image} key={newsItem.id} id={newsItem.id} description={newsItem.description} title={newsItem.title} rating={newsItem.rating} />
+					)}
 				</div>
-				{news.map(
-					(newsItem) =>  
-						<News rate={this.props.actions.rate} unrate={this.props.actions.unrate} author={newsItem.author} date={newsItem.date} image={newsItem.image} key={newsItem.id} id={newsItem.id} description={newsItem.description} title={newsItem.title} rating={newsItem.rating} />
-				)}
 			</div>
+		</div>
 		);
 	}
 }

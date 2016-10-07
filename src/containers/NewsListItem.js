@@ -6,6 +6,7 @@ import * as actionCreators from '../actions/ActionCreators';
 import _ from 'lodash/array';
 
 class NewsListItem extends React.Component {
+	
 	createPropsFromStore() {
 		let items = this.props.news,
 			itemId = parseInt(this.props.routeParams.id, 10),
@@ -20,17 +21,19 @@ class NewsListItem extends React.Component {
 	}
 
 	render() {
-		let props = this.createPropsFromStore();	
-		return (
-			<div className="app container">
+		let props = this.createPropsFromStore();
+		let newsItem = (
+			<div>
 			  <div className="app-header">
 			    <h1>{props.title}</h1>
 			  </div>
 			  <div className="app-content">
 		          <News {...props} />
-		        </div>
 		      </div>
-			);
+		    </div>
+		);
+		
+		return newsItem;
 	}
 }
 
