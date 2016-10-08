@@ -51,7 +51,7 @@ class NewsList extends React.Component {
 					</div>
 					{news.map(
 						(newsItem) =>  
-							<News rate={this.props.actions.rate} unrate={this.props.actions.unrate} author={newsItem.author} date={newsItem.date} image={newsItem.image} key={newsItem.id} id={newsItem.id} description={newsItem.description} title={newsItem.title} rating={newsItem.rating} />
+							<News rate={this.props.actions.rate} unrate={this.props.actions.unrate}  key={newsItem.id} {...newsItem} />
 					)}
 				</div>
 			</div>

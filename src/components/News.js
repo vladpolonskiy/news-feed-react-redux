@@ -1,18 +1,25 @@
 import React from 'react';
 import {Link} from 'react-router';
+import NewsComments from './NewsComments';
 
 export default class News extends React.Component {
+	
+	static defaultProps = {
+		comments: []
+	}
+
 	render() {
-		let header = (!this.props.single) ? (<h3 className="news-item-title"><Link to={"/news/" + this.props.id}>{this.props.title}</Link></h3>) : null,
-			description = (!!this.props.single) ? (<p className="news-item-description">{this.props.description}</p>) : null;
+		let headerTemplate = (!this.props.single) ? (<h3 className="news-item-title"><Link to={"/news/" + this.props.id}>{this.props.title}</Link></h3>) : null,
+			descriptionTemplate = (!!this.props.single) ? (<p className="news-item-description">{this.props.description}</p>) : null,
+			commentsTemplate = (!!this.props.single) ? (<NewsComments comments={this.props.comments} />) : null;
 
 		return (
 			<div className="news-item">
-				{header}
+				{headerTemplate}
 				<div className="news-item-thumbnail">
 					<img src={this.props.image} alt="" />
 				</div>
-				{description}
+				{descriptionTemplate}
 				<div className="news-item-footer">
 						<span className="news-item-rating-label">Rating: </span>
 						<button onClick={() => this.props.rate(this.props.id)} className="btn btn-small btn-success">+</button> 
@@ -23,6 +30,7 @@ export default class News extends React.Component {
 						<div className="news-item-date"><b>Date:</b> <span>{this.props.date}</span></div>
 					</div>
 				</div>
+				{commentsTemplate}
 			</div>
 		);
 	}

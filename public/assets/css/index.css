@@ -90,3 +90,19 @@ body {
     position: relative;
     top: 2px;
 }
+
+.comments-template h3 {
+	margin-top: 60px;
+}
+
+.comments-template > blockquote:nth-child(2) {
+	margin-top: 26px;
+}
+
+.comments-template blockquote {
+	padding-left: 110px;
+}
+
+.comments-template cite {
+	font-size: 14px;
+}
