@@ -1,5 +1,6 @@
 import React from 'react';
 import App from './containers/App';
+import Login from './containers/Login';
 import NewsList from './containers/NewsList';
 import NewsListItem from './containers/NewsListItem';
 import NotFound from './components/NotFound';
@@ -9,6 +10,7 @@ export const routes = (
 	<div>
 		<Route path="/" component={App}>
 			<IndexRedirect to="/news" />
+			<Route path="/login" component={Login} />
 			<Route path="/news" component={NewsList} />
 			<Route path="/news/(:id)" component={NewsListItem} />
 		</Route>

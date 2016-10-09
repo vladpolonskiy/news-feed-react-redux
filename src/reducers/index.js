@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
-import news from './News.js';
+import news from './News';
+import users from './Users';
 
 const rootReducer = combineReducers({
-	news
+	news,
+	users
 });
 
 export default rootReducer;

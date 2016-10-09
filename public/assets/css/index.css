@@ -33,6 +33,21 @@ body {
 	padding: 0 70px 15px 70px;
 }
 
+.app-toolbar {
+	float: right;
+	
+}
+
+.app-toolbar a,
+.app-toolbar span {
+	color: #fff;
+	text-decoration: none;
+}
+
+.app-toolbar .log-out {
+	cursor: pointer
+}
+
 /**
 * News Component
 **/
@@ -105,4 +120,8 @@ body {
 
 .comments-template cite {
 	font-size: 14px;
+}
+
+.login-form form {
+	margin: 15px 0;
 }

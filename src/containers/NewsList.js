@@ -5,8 +5,9 @@ import {connect} from 'react-redux';
 import * as actionCreators from '../actions/ActionCreators';
 
 class NewsList extends React.Component {
+
 	componentWillMount() {
-		if (localStorage.getItem('n_sort'))
+		if (!!localStorage.getItem('n_sort'))
 			return;
 
 		localStorage.setItem('n_sort', 'none');
@@ -60,7 +61,7 @@ class NewsList extends React.Component {
 	}
 }
 
-let mapStateToProps = (state) => ( {...state} );
+let mapStateToProps = (state) => ( {news: state.news} );
 let	mapDispatchToProps = (dispatch) => ( {actions: bindActionCreators(actionCreators, dispatch)} );
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewsList);

@@ -1,7 +1,7 @@
 import {RATE, UNRATE, FETCH_NEWS_SUCCESS, FETCH_NEWS_ERROR} from '../constants/ActionTypes';
 
 export default function news(state = [], action) {
-	let newState = [];
+	let newState = [...state];
 	
 	switch (action.type) {
 		case RATE:

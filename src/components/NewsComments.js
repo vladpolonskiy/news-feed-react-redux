@@ -6,7 +6,7 @@ export default class NewsComments extends React.Component {
 
 		if (this.props.comments.length > 0) {
 			// Display comments, sorted by date
-			let commentsSorted = this.props.comments.sort((a, b) => ( new Date(a.date).getTime() - new Date(b.date).getTime() ));
+			let commentsSorted = this.props.comments.sort((a, b) => ( new Date(b.date).getTime() - new Date(a.date).getTime() ));
 
 			newsCommentsTemplate = (
 				<div className="comments-template">
