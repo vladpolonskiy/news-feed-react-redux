@@ -125,3 +125,7 @@ body {
 .login-form form {
 	margin: 15px 0;
 }
+
+.add-comment .btn {
+	margin-top: 10px;
+}

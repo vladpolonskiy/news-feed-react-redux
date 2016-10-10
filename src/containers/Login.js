@@ -20,8 +20,9 @@ class Login extends React.Component {
 
 		let index = _.findIndex(this.props.users, {login: this.refs.login.value, password: this.refs.pwd.value});
 
-		if ( index !== -1) {
-			localStorage.setItem('n_current_user', this.props.users[index].login);
+		if ( index !== -1 && this.refs.login.value !== this.props.current_user) {
+			// SIGN_IN
+			this.props.actions.signIn(this.refs.login.value);
 			this.context.router.push('/news');
 		} else {
 			this.refs.error.className = "login-error";
@@ -51,14 +52,14 @@ class Login extends React.Component {
 				  <div ref="error" className="login-error hidden">
 					Data you have entered is incorrect. Please try again.
 				  </div>
-				  <button onClick={this.handleSubmit} type="submit" className="btn btn-default">Submit</button>
+				  <button onClick={this.handleSubmit} type="submit" className="btn btn-primary">Submit</button>
 				</form>
 			</div>
 		);
 	}
 }
 
-let mapStateToProps = (state) => ({users: state.users});
-let mapDispatchToProps = (dispatch) => (bindActionCreators(actionCreators, dispatch));
+let mapStateToProps = (state) => ({users: state.users, current_user: state.current_user});
+let mapDispatchToProps = (dispatch) => ({actions: bindActionCreators(actionCreators, dispatch)});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -7,11 +7,6 @@ import {Link} from 'react-router';
 
 class App extends Component {
 
-  constructor(props) {
-    super(props);
-    this.logOut = this.logOut.bind(this);
-  }
-
   componentWillMount() {
     if (this.props.news.length < 1) {
   	 this.props.actions.getNews();
@@ -22,23 +17,18 @@ class App extends Component {
     }
   }
 
-  logOut() {
-    localStorage.removeItem('n_current_user');
-    this.forceUpdate();
-  }
-
   render() {
     let signInClass = this.props.routes[this.props.routes.length -1].path === '/login' ? 'hidden' : '';
 
-    let curUser = (!!localStorage.getItem('n_current_user')) ? 
-                        this.props.users[_.findIndex(this.props.users, {login: localStorage.getItem('n_current_user')})] : 
+    let curUser = (!!this.props.current_user) ? 
+                        this.props.users[_.findIndex(this.props.users, {login: this.props.current_user})] : 
                         null;
 
     let singIn = (!!curUser) ? 
                       (<div className="app-toolbar">
                         <span className="sign-in">Signed as {curUser.visible_name}</span>
                         <span> / </span>
-                        <span onClick={this.logOut} className="log-out">Log out</span>
+                        <span onClick={() => (this.props.actions.logOut())} className="log-out">Log out</span>
                       </div>) : 
                       (<div className="app-toolbar">
                         <span className={"sign-in " + signInClass}><Link to="/login">Sign In</Link></span>    

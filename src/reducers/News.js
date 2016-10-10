@@ -1,4 +1,4 @@
-import {RATE, UNRATE, FETCH_NEWS_SUCCESS, FETCH_NEWS_ERROR} from '../constants/ActionTypes';
+import {RATE, UNRATE, FETCH_NEWS_SUCCESS, FETCH_NEWS_ERROR, POST_COMMENT} from '../constants/ActionTypes';
 
 export default function news(state = [], action) {
 	let newState = [...state];
@@ -9,6 +9,15 @@ export default function news(state = [], action) {
 			newState = state.map((news) => {
 				if (news.id === action.id) {
 					news.rating = rating(news.rating, action);
+				}
+				return news;
+			});
+			break;
+
+		case POST_COMMENT:
+			newState = state.map((news) => {
+				if (news.id === action.id) {
+					news.comments.push(action.comment);
 				}
 				return news;
 			});

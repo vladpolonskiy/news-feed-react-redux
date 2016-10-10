@@ -1,4 +1,22 @@
-import {RATE, UNRATE, FETCH_NEWS_SUCCESS, FETCH_NEWS_ERROR, FETCH_USERS_SUCCESS, FETCH_USERS_ERROR} from '../constants/ActionTypes';
+import {
+		SIGN_IN, 
+		LOG_OUT,
+		RATE,
+		UNRATE,
+		FETCH_NEWS_SUCCESS,
+		FETCH_NEWS_ERROR,
+		FETCH_USERS_SUCCESS,
+		FETCH_USERS_ERROR,
+		POST_COMMENT
+	} from '../constants/ActionTypes';
+
+export function signIn(login) {
+	return {type: SIGN_IN, login: login};
+}
+
+export function logOut() {
+	return {type: LOG_OUT};
+}
 
 export function rate(id) {
 	return {type: RATE, id: id};
@@ -20,6 +38,10 @@ export function getUsers() {
 				(users) => dispatch( {type: FETCH_USERS_SUCCESS, users: users} ), 
 				(error) => dispatch( {type: FETCH_USERS_ERROR, message: error} )
 			);
+}
+
+export function postComment(newsId, comment) {
+	return {type: POST_COMMENT, id: newsId, comment: comment};
 }
 
 /**
