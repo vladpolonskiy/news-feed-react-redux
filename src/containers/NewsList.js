@@ -5,21 +5,8 @@ import {connect} from 'react-redux';
 import * as actionCreators from '../actions/ActionCreators';
 
 class NewsList extends React.Component {
-
-	componentWillMount() {
-		if (!!localStorage.getItem('n_sort'))
-			return;
-
-		localStorage.setItem('n_sort', 'none');
-	}
-
-	sortChange(type) {
-		localStorage.setItem('n_sort', type);
-		this.forceUpdate();
-	}
-
 	render() {
-		let sort = localStorage.getItem('n_sort'),
+		let sort = this.props.sort,
 			news = this.props.news;
 
 		switch (sort) {
@@ -44,7 +31,7 @@ class NewsList extends React.Component {
 				<div className="news-list">
 					<div className="toolbar">
 						<span>Order by:</span> 
-						<select defaultValue={localStorage.getItem('n_sort')} onChange={(e) => {this.sortChange(e.target.value);} }>
+						<select defaultValue={this.props.sort} onChange={(e) => {this.props.actions.setSort(e.target.value)} }>
 							<option>none</option>
 							<option>date</option>
 							<option>rating</option>
@@ -61,7 +48,7 @@ class NewsList extends React.Component {
 	}
 }
 
-let mapStateToProps = (state) => ( {news: state.news} );
+let mapStateToProps = (state) => ( {news: state.news, sort: state.sort} );
 let	mapDispatchToProps = (dispatch) => ( {actions: bindActionCreators(actionCreators, dispatch)} );
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewsList);

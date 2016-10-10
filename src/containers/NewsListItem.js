@@ -4,7 +4,6 @@ import NewsCommentAdd from '../components/NewsCommentAdd';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as actionCreators from '../actions/ActionCreators';
-import _ from 'lodash/array';
 
 class NewsListItem extends React.Component {
 	constructor(props) {
@@ -13,7 +12,7 @@ class NewsListItem extends React.Component {
 	}
 
 	postComment(text) {
-		let author = this.props.users[_.findIndex(this.props.users, {login: this.props.current_user})].visible_name;
+		let author = this.props.users.find((element) => (element.login === this.props.current_user)).visible_name;
 		let now = new Date();
 		let date = (now.getMonth() + 1) + "." + now.getDate() + "." + now.getFullYear();
 		let itemId = parseInt(this.props.routeParams.id, 10);
@@ -26,7 +25,7 @@ class NewsListItem extends React.Component {
 	createPropsFromStore() {
 		let items = this.props.news,
 			itemId = parseInt(this.props.routeParams.id, 10),
-			item = items[ _.findIndex(items, {id: itemId}) ];
+			item = items.find((element) => (element.id === itemId));
 
 		return {
 			rate: this.props.actions.rate,

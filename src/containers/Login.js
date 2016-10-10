@@ -2,7 +2,6 @@ import React, {PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as actionCreators from '../actions/ActionCreators';
-import _ from 'lodash/array';
 
 class Login extends React.Component {
 
@@ -18,9 +17,9 @@ class Login extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 
-		let index = _.findIndex(this.props.users, {login: this.refs.login.value, password: this.refs.pwd.value});
+		let user = this.props.users.find((element) => (element.login === this.refs.login.value &&  element.password === this.refs.pwd.value));
 
-		if ( index !== -1 && this.refs.login.value !== this.props.current_user) {
+		if ( !!user && this.refs.login.value !== this.props.current_user) {
 			// SIGN_IN
 			this.props.actions.signIn(this.refs.login.value);
 			this.context.router.push('/news');

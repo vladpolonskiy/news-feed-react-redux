@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as actionCreators from '../actions/ActionCreators';
-import _ from 'lodash/array';
 import AppToolbar from '../components/AppToolbar';
 
 class App extends Component {
@@ -20,7 +19,7 @@ class App extends Component {
   render() {
     let onLoginClass = this.props.routes[this.props.routes.length -1].path === '/login' ? 'hidden' : '';
     let curUser = (!!this.props.current_user) ? 
-                        this.props.users[_.findIndex(this.props.users, {login: this.props.current_user})] : 
+                        this.props.users.find( (element) => (element.login === this.props.current_user) ) : 
                         null;
 
     return (
@@ -32,7 +31,7 @@ class App extends Component {
   }
 }
 
-let mapStateToProps = (state) => ({...state});
+let mapStateToProps = (state) => ({news: state.news, users: state.users, current_user: state.current_user});
 let mapDispatchToProps = (dispatch) => ( {actions: bindActionCreators(actionCreators, dispatch)} );
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -7,11 +7,12 @@ import {
 		FETCH_NEWS_ERROR,
 		FETCH_USERS_SUCCESS,
 		FETCH_USERS_ERROR,
-		POST_COMMENT
+		POST_COMMENT,
+		SORT
 	} from '../constants/ActionTypes';
 
 export function signIn(login) {
-	return {type: SIGN_IN, login: login};
+	return {type: SIGN_IN, login};
 }
 
 export function logOut() {
@@ -19,23 +20,27 @@ export function logOut() {
 }
 
 export function rate(id) {
-	return {type: RATE, id: id};
+	return {type: RATE, id};
 }
 
 export function unrate(id) {
-	return {type: UNRATE, id: id};
+	return {type: UNRATE, id};
+}
+
+export function setSort(sort_type) {
+	return {type: SORT, sort_type};
 }
 
 export function getNews() {
 	return (dispatch) => fetchNews().then(
-				(news) => dispatch( {type: FETCH_NEWS_SUCCESS, news: news} ), 
+				(news) => dispatch( {type: FETCH_NEWS_SUCCESS, news} ), 
 				(error) => dispatch( {type: FETCH_NEWS_ERROR, message: error} )
 			);
 }
 
 export function getUsers() {
 	return (dispatch) => fetchUsers().then(
-				(users) => dispatch( {type: FETCH_USERS_SUCCESS, users: users} ), 
+				(users) => dispatch( {type: FETCH_USERS_SUCCESS, users} ), 
 				(error) => dispatch( {type: FETCH_USERS_ERROR, message: error} )
 			);
 }

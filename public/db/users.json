@@ -1,14 +1,12 @@
 {
 	"users": [
 		{
-			"id": 0,
 			"login": "vlad",
 			"password": "vlad",
 			"visible_name": "Vladislav Polonskyi",
 			"role": "admin" 
 		},
 		{
-			"id": 1,
 			"login": "slava",
 			"password": "slava",
 			"visible_name": "Vyacheslav Shevchenko",
