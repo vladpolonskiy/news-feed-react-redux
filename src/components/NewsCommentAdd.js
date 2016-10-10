@@ -9,6 +9,7 @@ export default class NewsCommentAdd extends React.Component {
 	addComment(e) {
 		e.preventDefault();
 		this.props.handleClick(this.refs.comment_content.value);
+		this.refs.comment_content.value = '';
 	}
 
 	render() {

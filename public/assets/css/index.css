@@ -8,6 +8,7 @@ body {
 }
 
 .app {
+	position: relative;
 	margin-top: 15px;
 	margin-bottom: 15px;
 	-webkit-box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.75);
@@ -34,8 +35,10 @@ body {
 }
 
 .app-toolbar {
-	float: right;
-	
+	width: 100%;
+	position: absolute;
+	left: 0px;
+	padding: 5px 15px;
 }
 
 .app-toolbar a,
@@ -46,6 +49,18 @@ body {
 
 .app-toolbar .log-out {
 	cursor: pointer
+}
+
+.app-toolbar-registration {
+	float: right;
+}
+
+.app-toolbar-navigation {
+	float: left;
+}
+
+.admin-page {
+	margin-left: 15px;
 }
 
 /**
